@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shape Defense</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- p5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
+    <!-- ml5 -->
+    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+    <!-- web serial -->
+    <script src="https://cdn.jsdelivr.net/gh/makeabilitylab/p5js/_libraries/serial.js"></script>
+  </head>
+
+  <body>
+    <h1>Shape Defense</h1>
+    <div id='title-img'><img src='./assets/title_image.png' /></div>
+    <div id='content'>
+      <p>The Shape Army is invading! Let's work together to defend our stronghold!</p>
+      <div id='instructions'>
+        <h2>How to Play</h2>
+        <h3>The Magic Drawboard</h3>
+        <div class='side-by-side'>
+          <div class='left'>
+            <img src="./assets/drawboard.gif" alt="drawing triangle, circle, and square in the drawing board area"/>
+          </div>
+          <div class='right'>
+            <p>
+              Draw the shape for the ammo to be loaded next on the drawboard. Only
+              ammo of the correct shape can eliminate the incoming enemies!
+            </p>
+            <p>
+              After drawing, press SPACE to load ammo, or CLEAR to clear the drawboard.
+            </p>
+          </div>
+        </div>
+        <h3>Playing with Arduino controllers</h3>
+        <div class='side-by-side'>
+          <div class='left'>
+            <img src="./assets/joystick.gif" alt="joystick moving left and right" />
+          </div>
+          <div class='right'>
+            <p>
+              Use Joystick to select a cannon.
+            </p>
+            <p>
+              The small OLED screen shows the next wave!
+            </p>
+          </div>
+        </div>
+        <button id='connect-btn' class='not-connected'>Click to connect to Arduino</button>
+        <h3>Playing with keyboard</h3>
+        <div class='side-by-side'>
+          <div class='left'>
+            <img src="https://i.gifer.com/ZQ6A.gif" alt="four arrow keys on the keyboard with left and right flashing green"/>
+          </div>
+          <div class='right'>
+            <p>
+              Use left and right arrow keys to select a cannon.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="sketch.js"></script>
+    <script src="shape.js"></script>
+    <script src="cannon.js"></script>
+    <script src="ammo.js"></script>    
+    <script src="enemy.js"></script>
+  </body>
+</html>
