@@ -57,6 +57,8 @@ function preload() {
 
 function setup() {
   canvas = createCanvas(1000, 400);
+  canvas.id("canvas");
+  document.getElementById("gameboard").appendChild(document.getElementById("canvas"));
   // Setup Web Serial using serial.js
   serial = new Serial();
   serial.on(SerialEvents.CONNECTION_OPENED, onSerialConnectionOpened);
@@ -87,7 +89,7 @@ function setup() {
     clearDrawingBoard();
   });
   clearButton.id("clear-btn");
-
+  document.getElementById("gameboard").appendChild(document.getElementById("clear-btn"));
   connectButton = document.getElementById("connect-btn");
   connectButton.addEventListener('click', function() {
     if (!serial.isOpen()) {

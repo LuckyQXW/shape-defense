@@ -113,6 +113,8 @@ h3 {
   height: 30px;
   border: 2px black solid;
   cursor: pointer;
+  position: relative;
+  left: -220px;
 }
 
 .connected {
@@ -121,4 +123,9 @@ h3 {
 
 button {
   font-size: 12pt;
+}
+
+#gameboard {
+  width: 1000px;
+  margin: auto;
 }
