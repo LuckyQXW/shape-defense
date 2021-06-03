@@ -33,6 +33,7 @@ h1, h2, h3 {
   color: black;
   font-family: 'Limelight', cursive;
 }
+
 h1 {
   font-size: 30pt;
 }
@@ -43,6 +44,11 @@ h2 {
 
 h3 {
   font-size: 16pt;
+}
+
+h4 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 15pt;
 }
 
 #content {
@@ -73,7 +79,7 @@ h3 {
 }
 
 .left {
-  width: 15%;
+  width: 20%;
   margin-right: 50px;
 }
 
@@ -128,4 +134,9 @@ button {
 #gameboard {
   width: 1000px;
   margin: auto;
+  margin-bottom: 50px;
+}
+
+#title {
+  text-align: center;
 }

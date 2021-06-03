@@ -17,12 +17,26 @@
   </head>
 
   <body>
-    <h1>Shape Defense</h1>
+    <div id='title'>
+      <h1>Shape Defense</h1>
+      <p>Designed and developed with 💜 by Wen Qiu</p>
+    </div>
     <div id='title-img'><img src='./assets/title_image.png' /></div>
     <div id='content'>
       <p>The Shape Army is invading! Let's work together to defend our stronghold!</p>
       <div id='instructions'>
         <h2>How to Play</h2>
+        <div class='side-by-side'>
+          <div class='left'>
+            <img src="./assets/gameboard.gif" alt="gameboard animation with shapes coming down each lane"/>
+          </div>
+          <div class='right'>
+            <p>
+              Circle, square and triangle enemies will come down from each lane. You will need to load the cannon with
+              the corresponding ammo shape to fight them back!
+            </p>
+          </div>
+        </div>
         <h3>The Magic Drawboard</h3>
         <div class='side-by-side'>
           <div class='left'>
@@ -38,7 +52,8 @@
             </p>
           </div>
         </div>
-        <h3>Playing with Arduino controllers</h3>
+        <h3>Selecting Cannons</h3>
+        <h4>Option 1: Playing with Arduino controllers</h4>
         <div class='side-by-side'>
           <div class='left'>
             <img src="./assets/joystick.gif" alt="joystick moving left and right" />
@@ -53,7 +68,7 @@
           </div>
         </div>
         <button id='connect-btn' class='not-connected'>Click to connect to Arduino</button>
-        <h3>Playing with keyboard</h3>
+        <h4>Option 2: Playing with keyboard</h3>
         <div class='side-by-side'>
           <div class='left'>
             <img src="https://i.gifer.com/ZQ6A.gif" alt="four arrow keys on the keyboard with left and right flashing green"/>
@@ -66,9 +81,7 @@
         </div>
       </div>
     </div>
-    <div id="gameboard">
-      
-    </div>
+    <div id="gameboard"></div>
     <script src="sketch.js"></script>
     <script src="shape.js"></script>
     <script src="cannon.js"></script>
