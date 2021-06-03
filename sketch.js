@@ -81,7 +81,7 @@ function setup() {
 
   clearDrawingBoard();
 
-  inputImage = createGraphics(32, 32);
+  inputImage = createGraphics(64, 64);
   clearButton = createButton("CLEAR");
   clearButton.mousePressed(function() {
     clearDrawingBoard();
@@ -236,7 +236,7 @@ function modelLoaded() {
 }
 
 function classifyShape() {
-  inputImage.copy(canvas, 0, 0, 400, 400, 0, 0, 32, 32);
+  inputImage.copy(canvas, 0, 0, 400, 400, 0, 0, 64, 64);
   shapeClassifier.classify({image: inputImage}, gotResults);
 }
 
