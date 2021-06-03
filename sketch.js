@@ -33,12 +33,15 @@ let connectButton;
 
 let bgMusic;
 let hitEffect;
+let loseLifeEffect;
 
 function preload() {
   bgMusic = createAudio('assets/brave_world.wav');
   bgMusic.volume(0.5);
   hitEffect = createAudio('assets/hit.wav');
   hitEffect.volume(0.5);
+  loseLifeEffect = createAudio('assets/lose_life.mp3');
+  loseLifeEffect.volume(0.5);
   // set up and load ML model
   const options = {
     inputs: [64, 64, 4],
@@ -323,6 +326,7 @@ function updateEnemies() {
       shapeCounts[enemies[i].getLane()] -= 1;
       // Once any shape reaches a cannon, lives -1
       lives--;
+      loseLifeEffect.play();
       // Send to arduino for vibration
       serialWriteTextData("b");
       if (lives == 0) {
