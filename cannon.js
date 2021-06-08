@@ -15,6 +15,8 @@ class Cannon extends Shape {
   update() {
   }
   
+  // Transfers one ammo stored in this cannon to the collection of ammo managed by the
+  // game state
   shoot(gameAmmos) {
     if ((frameCount - this.lastShootTime) >= this.shootInterval && this.ammos.length > 0) {
       this.shootEffect.play();

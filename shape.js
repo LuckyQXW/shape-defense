@@ -1,4 +1,6 @@
-class Shape {
+  // Adapted from flappy bird game by Jon Froehlich
+  // https://editor.p5js.org/jonfroehlich/sketches/shtF6XFeY
+  class Shape {
     constructor(x, y, width, height) {
       this.x = x;
       this.y = y;

@@ -54,7 +54,6 @@ function preload() {
     metadata: 'model/model_meta.json',
     weights: 'model/model.weights.bin'
   };
-  // resultDiv = createDiv("loading model...");
   shapeClassifier.load(modelDetails, modelLoaded);
 }
 
@@ -71,7 +70,6 @@ function setup() {
 
   // If we have previously approved ports, attempt to connect with them
   serial.autoConnectAndOpenPreviouslyApprovedPort(serialOptions);
-  // receivedData = createDiv("Click anywhere to connect to serial port");
   background(0);
   push();
     // Set up cannons
@@ -105,11 +103,9 @@ function setup() {
 }
 
 function onSerialErrorOccurred(eventSender, error) {
-  // receivedData.html(error);
 }
 
 function onSerialConnectionOpened(eventSender) {
-  // receivedData.html("Serial connection opened successfully");
   serialWriteTextData("-1,-1,-1,-1,-1");
   // Toggle the state of the connect button
   connectButton.classList.remove("not-connected");
@@ -118,7 +114,6 @@ function onSerialConnectionOpened(eventSender) {
 }
 
 function onSerialConnectionClosed(eventSender) {
-  // receivedData.html("onSerialConnectionClosed");
   // Toggle the state of the connect button
   connectButton.classList.remove("connected");
   connectButton.classList.add("not-connected");
@@ -126,7 +121,6 @@ function onSerialConnectionClosed(eventSender) {
 }
 
 function onSerialDataReceived(eventSender, newData) {
-  // receivedData.html("onSerialDataReceived: " + newData);
   // Receive joystick value (-1 = left, 1 = right)
   let direction = parseInt(newData);
   activeCannon += direction;
@@ -140,7 +134,6 @@ function onSerialDataReceived(eventSender, newData) {
 // Send text data over serial
 function serialWriteTextData(textData) {
   if (serial.isOpen()) {
-    // console.log("Writing to serial: ", textData);
     serial.writeLine(textData);
   }
 }
@@ -236,7 +229,6 @@ function draw() {
 }
 
 function modelLoaded() {
-  // resultDiv.html("model loaded!");
   modelReady = true;
 }
 
@@ -250,7 +242,6 @@ function gotResults(err, results) {
     console.log(err);
     return;
   }
-  // resultDiv.html(`${results[0].label}, ${results[0].confidence}`)
   push();
     // Add color outline to the drawboard based on predicted label
     noFill();
@@ -345,6 +336,7 @@ function updateEnemies() {
   enemies = newEnemies;
 }
 
+// Deque an enemy after certain number of frames
 function checkSpawn() {
   if ((frameCount - lastFrameCount) >= stagesSpawnIntervals[stage - 1]) {
     dequeEnemy();
@@ -352,8 +344,8 @@ function checkSpawn() {
   }
 }
 
+// Increment stage every 1000 points earned
 function checkStage() {
-  // Increment stage every 1000 points earned
   if (score >= stage * 1000 && stage < stagesSpawnIntervals.length) {
     stage += 1;
   }
@@ -402,6 +394,7 @@ function enqueueNextWave() {
 }
 
 function drawScore() {
+  // adapted from flappy bird game by Jon Froehlich: https://editor.p5js.org/jonfroehlich/sketches/shtF6XFeY
   fill(0);
   textAlign(LEFT);
   textSize(15);
